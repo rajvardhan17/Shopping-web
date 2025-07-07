@@ -1,4 +1,5 @@
 package db;
+
 import java.sql.*;
 
 public class DBConnection {
@@ -11,4 +12,7 @@ public class DBConnection {
         System.out.println("Connection Successful");
         return conn;
     }
+
+    // Optional: test the connection (run this in main for debugging)
+
 }
