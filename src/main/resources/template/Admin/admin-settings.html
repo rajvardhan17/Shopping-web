@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Settings</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #1f1f1f;
+      color: white;
+      padding: 30px 15px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 10px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #007bff;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    .main h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 25px;
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media(max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+      .main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-products.html">Products</a>
+    <a href="admin-orders.html">Orders</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-add-product.html">Add Product</a>
+    <a href="admin-settings.html" class="active">Settings</a>
+    <a href="Login.html">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Admin Settings</h1>
+    <form>
+      <label for="adminName">Admin Name</label>
+      <input type="text" id="adminName" value="Admin" required />
+
+      <label for="adminEmail">Email</label>
+      <input type="email" id="adminEmail" value="admin@shopease.com" required />
+
+      <label for="adminPassword">Password</label>
+      <input type="password" id="adminPassword" placeholder="Enter new password" />
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+
+</body>
+</html>

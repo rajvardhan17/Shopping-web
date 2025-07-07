@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart - ShopEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .container {
+      padding: 40px 60px;
+    }
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    img {
+      width: 70px;
+      border-radius: 6px;
+    }
+    input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      font-size: 1rem;
+    }
+    .remove-btn {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ShopEase</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Your Shopping Cart</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <tr>
+          <td><img src="https://source.unsplash.com/100x100/?tshirt,black" alt="Black Tee" /></td>
+          <td>Black Cotton T-Shirt</td>
+          <td>₹799</td>
+          <td><input type="number" min="1" value="1" onchange="updateCart()" /></td>
+          <td class="subtotal">₹799</td>
+          <td><button class="remove-btn" onclick="removeItem(this)">Remove</button></td>
+        </tr>
+        <tr>
+          <td><img src="https://source.unsplash.com/100x100/?tshirt,cartoon" alt="Cartoon Tee" /></td>
+          <td>Cartoon Kids Tee</td>
+          <td>₹499</td>
+          <td><input type="number" min="1" value="2" onchange="updateCart()" /></td>
+          <td class="subtotal">₹998</td>
+          <td><button class="remove-btn" onclick="removeItem(this)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="total">
+      <strong>Total: ₹<span id="total-price">1797</span></strong>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 ShopEase. All rights reserved.
+  </footer>
+
+  <script>
+    function updateCart() {
+      const rows = document.querySelectorAll("#cart-items tr");
+      let total = 0;
+      rows.forEach(row => {
+        const price = parseInt(row.children[2].innerText.replace('₹',''));
+        const quantity = parseInt(row.querySelector('input').value);
+        const subtotal = price * quantity;
+        row.querySelector(".subtotal").innerText = `₹${subtotal}`;
+        total += subtotal;
+      });
+      document.getElementById("total-price").innerText = total;
+    }
+
+    function removeItem(btn) {
+      btn.closest("tr").remove();
+      updateCart();
+    }
+
+    // Initialize total on page load
+    updateCart();
+  </script>
+
+</body>
+</html>

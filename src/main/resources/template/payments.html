@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment - ShopEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .payment-methods {
+      display: flex;
+      gap: 20px;
+    }
+    .payment-methods label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #f9f9f9;
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .product-summary {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .product-summary img {
+      width: 100px;
+      border-radius: 8px;
+    }
+    .product-info h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    .product-info p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .total {
+      font-size: 1.2rem;
+      text-align: right;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      float: right;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ShopEase</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Cart</a>
+    <a href="#">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Payment Details</h2>
+
+  <!-- Shipping Info -->
+  <div class="section-title">Shipping Address</div>
+  <div class="form-group">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" />
+  </div>
+  <div class="form-group">
+    <label for="street">Street Address</label>
+    <input type="text" id="street" />
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" id="city" />
+  </div>
+  <div class="form-group">
+    <label for="postal">Postal Code</label>
+    <input type="text" id="postal" />
+  </div>
+  <div class="form-group">
+    <label for="country">Country</label>
+    <input type="text" id="country" />
+  </div>
+
+  <!-- Product Info -->
+  <div class="section-title">Product Summary</div>
+  <div class="product-summary">
+    <img src="https://source.unsplash.com/100x100/?tshirt,men" alt="Product" />
+    <div class="product-info">
+      <h4>Men's Black Cotton T-Shirt</h4>
+      <p>Size: M | Qty: 1</p>
+      <p>Price: ₹799</p>
+    </div>
+  </div>
+
+  <!-- Payment Method -->
+  <div class="section-title">Payment Method</div>
+  <div class="payment-methods">
+    <label><input type="radio" name="payment" value="card" checked /> Credit/Debit Card</label>
+    <label><input type="radio" name="payment" value="upi" /> UPI</label>
+  </div>
+
+  <!-- Card Form -->
+  <div id="card-form">
+    <div class="form-group">
+      <label for="card-name">Cardholder Name</label>
+      <input type="text" id="card-name" />
+    </div>
+    <div class="form-group">
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" maxlength="16" />
+    </div>
+    <div class="form-group">
+      <label for="expiry">Expiry (MM/YY)</label>
+      <input type="text" id="expiry" />
+    </div>
+    <div class="form-group">
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" maxlength="3" />
+    </div>
+  </div>
+
+  <!-- UPI Form -->
+  <div id="upi-form" style="display: none;">
+    <div class="form-group">
+      <label for="upi-id">UPI ID</label>
+      <input type="text" id="upi-id" placeholder="example@upi" />
+    </div>
+  </div>
+
+  <!-- Total & Button -->
+  <div class="total"><strong>Total: ₹799</strong></div>
+  <button type="submit">Make Payment</button>
+</div>
+
+<footer>
+  © 2025 ShopEase. All rights reserved.
+</footer>
+
+<script>
+  // Auto-fill dummy user data (simulate fetch from backend)
+  window.onload = function () {
+    document.getElementById("fullname").value = "Ravi Kumar";
+    document.getElementById("street").value = "123 MG Road";
+    document.getElementById("city").value = "Mumbai";
+    document.getElementById("postal").value = "400001";
+    document.getElementById("country").value = "India";
+  };
+
+  // Toggle card/upi forms
+  const paymentOptions = document.querySelectorAll('input[name="payment"]');
+  const cardForm = document.getElementById("card-form");
+  const upiForm = document.getElementById("upi-form");
+
+  paymentOptions.forEach(option => {
+    option.addEventListener("change", () => {
+      if (option.value === "card") {
+        cardForm.style.display = "block";
+        upiForm.style.display = "none";
+      } else {
+        cardForm.style.display = "none";
+        upiForm.style.display = "block";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
