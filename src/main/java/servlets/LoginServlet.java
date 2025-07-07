@@ -1,4 +1,4 @@
-package Servlets;
+package servlets;
 
 import db.DBConnection;
 import java.io.*;

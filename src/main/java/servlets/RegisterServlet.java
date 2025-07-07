@@ -1,4 +1,4 @@
-package Servlets;
+package servlets;
 
 public class RegisterServlet {
 }
