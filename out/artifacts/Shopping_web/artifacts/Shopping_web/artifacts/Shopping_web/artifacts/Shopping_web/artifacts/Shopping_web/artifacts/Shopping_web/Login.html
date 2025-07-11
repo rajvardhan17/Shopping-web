@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - ShopEase Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #007bff, #6c63ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 30px 35px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .input-group {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 40px 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      color: #999;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .footer-link {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.9rem;
+    }
+
+    .footer-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 480px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="../template/home.html" method="POST">
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder="Username or Email" required />
+        <i class="fa fa-user"></i>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" required />
+        <i class="fa fa-lock"></i>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="footer-link">
+      <p>Forgot password? <a href="reset-password.html">Reset here</a></p>
+      <p>New user? <a href="register.html">Register</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -2,39 +2,60 @@ package servlets;
 
 import db.DBConnection;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = req.getParameter("username");
-        String password = req.getParameter("password");
+        request.getRequestDispatcher("/Login.html").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+
+        String email = request.getParameter("username"); // it could be username/email
+        String password = request.getParameter("password");
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
         try (Connection conn = DBConnection.getConnection()) {
-            PreparedStatement ps = conn.prepareStatement(
-                    "SELECT * FROM users WHERE email = ? AND password_hash = ?");
-            ps.setString(1, email);
-            ps.setString(2, password); // hash this in production
+            String sql = "SELECT * FROM users WHERE email = ? AND password_hash = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, password); // NOTE: In real-world apps, hash this
 
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs = stmt.executeQuery();
+
             if (rs.next()) {
-                HttpSession session = req.getSession();
-                session.setAttribute("user", rs.getString("full_name"));
-                res.sendRedirect("admin.html"); // or dashboard
+                // User found - start session
+                HttpSession session = request.getSession();
+                session.setAttribute("userEmail", rs.getString("email"));
+                session.setAttribute("fullName", rs.getString("full_name"));
+                session.setAttribute("isAdmin", rs.getBoolean("is_admin"));
+                session.setMaxInactiveInterval(30 * 60); // optional: 30 mins
+
+                // Redirect based on role
+                if (rs.getBoolean("is_admin")) {
+                    response.sendRedirect("Admin/admin.html");
+                } else {
+                    response.sendRedirect("index.html");
+                }
             } else {
-                res.getWriter().println("Invalid login");
+                // Invalid login
+                out.println("<h3 style='color:red;'>Invalid email or password</h3>");
+                request.getRequestDispatcher("/Login.html").include(request, response);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
-            res.getWriter().println("Error: " + e.getMessage());
+            out.println("<h3 style='color:red;'>Error: " + e.getMessage() + "</h3>");
         }
     }
 }

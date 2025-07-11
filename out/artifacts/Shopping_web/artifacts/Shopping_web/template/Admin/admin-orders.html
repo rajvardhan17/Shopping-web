@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Orders</title>
+  <link rel="stylesheet" href="../static/css/global.css" />
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #1f1f1f;
+      color: white;
+      padding: 30px 15px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 10px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #007bff;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    .main h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    thead {
+      background-color: #f0f0f0;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      font-size: 1rem;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .status {
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 6px;
+      color: white;
+    }
+
+    .pending { background-color: #ffc107; }
+    .shipped { background-color: #28a745; }
+    .cancelled { background-color: #dc3545; }
+
+    .action-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .action-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media(max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+      .main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-products.html">Products</a>
+    <a href="admin-orders.html" class="active">Orders</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-add-product.html">Add Product</a>
+    <a href="admin-settings.html">Settings</a>
+    <a href="Login.html">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Customer Orders</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#ORD1001</td>
+          <td>Ravi Kumar</td>
+          <td>2025-07-05</td>
+          <td>3</td>
+          <td>₹2,397</td>
+          <td><span class="status pending">Pending</span></td>
+          <td><button class="action-btn">Mark as Shipped</button></td>
+        </tr>
+        <tr>
+          <td>#ORD1002</td>
+          <td>Meera Joshi</td>
+          <td>2025-07-04</td>
+          <td>1</td>
+          <td>₹799</td>
+          <td><span class="status shipped">Shipped</span></td>
+          <td><button class="action-btn">View</button></td>
+        </tr>
+        <tr>
+          <td>#ORD1003</td>
+          <td>Amit Yadav</td>
+          <td>2025-07-02</td>
+          <td>2</td>
+          <td>₹1,499</td>
+          <td><span class="status cancelled">Cancelled</span></td>
+          <td><button class="action-btn">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Users</title>
+  <link rel="stylesheet" href="../static/css/global.css" />
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #1f1f1f;
+      color: white;
+      padding: 30px 15px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 10px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #007bff;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    .main h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    thead {
+      background-color: #f0f0f0;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      font-size: 1rem;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .role {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .admin {
+      background-color: #28a745;
+    }
+
+    .user {
+      background-color: #007bff;
+    }
+
+    @media(max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+      .main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-products.html">Products</a>
+    <a href="admin-orders.html">Orders</a>
+    <a href="admin-users.html" class="active">Users</a>
+    <a href="admin-add-product.html">Add Product</a>
+    <a href="admin-settings.html">Settings</a>
+    <a href="Login.html">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Registered Users</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Registered On</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>U001</td>
+          <td>Ravi Kumar</td>
+          <td>ravi@example.com</td>
+          <td>2024-11-15</td>
+          <td><span class="role user">User</span></td>
+        </tr>
+        <tr>
+          <td>U002</td>
+          <td>Priya Sharma</td>
+          <td>priya@example.com</td>
+          <td>2025-01-03</td>
+          <td><span class="role admin">Admin</span></td>
+        </tr>
+        <tr>
+          <td>U003</td>
+          <td>Amit Yadav</td>
+          <td>amit@example.com</td>
+          <td>2025-02-11</td>
+          <td><span class="role user">User</span></td>
+        </tr>
+        <tr>
+          <td>U004</td>
+          <td>Meera Joshi</td>
+          <td>meera@example.com</td>
+          <td>2025-03-07</td>
+          <td><span class="role user">User</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

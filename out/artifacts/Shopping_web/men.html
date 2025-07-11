@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Men's T-Shirts - ShopEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+    }
+    /*header {
+      background-color: #222;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }*/
+    .section {
+      padding: 40px 60px;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p>ShopEase</p>
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart</a>
+    <a href="account-usr.html">Account</a>
+    <a href="payments.html">Payment</a>
+  </nav>
+  </header>
+
+  <section class="section">
+    <h2>Men's T-Shirts</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?tshirt,men,black" alt="T-Shirt 1">
+        <h4>Black Cotton T-Shirt</h4>
+        <p>₹799</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?tshirt,men,white" alt="T-Shirt 2">
+        <h4>White V-Neck Tee</h4>
+        <p>₹699</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?tshirt,men,graphic" alt="T-Shirt 3">
+        <h4>Graphic Printed Tee</h4>
+        <p>₹999</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?tshirt,men,blue" alt="T-Shirt 4">
+        <h4>Blue Slim Fit Tee</h4>
+        <p>₹849</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?tshirt,men,oversized" alt="T-Shirt 5">
+        <h4>Oversized Street Style Tee</h4>
+        <p>₹1,199</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?tshirt,men,striped" alt="T-Shirt 6">
+        <h4>Striped Cotton Tee</h4>
+        <p>₹899</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 ShopEase. All rights reserved.
+  </footer>
+
+</body>
+</html>

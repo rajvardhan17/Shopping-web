@@ -1,0 +1,16 @@
+.nav{
+    height: 2rem;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+}
+.logo-name{
+    display: flex;
+    padding: 1rem;
+}
+.nav-content{
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+    padding-right: 1rem;
+}

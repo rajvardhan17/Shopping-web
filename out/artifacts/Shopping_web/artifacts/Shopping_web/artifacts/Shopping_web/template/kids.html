@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kids' T-Shirts - ShopEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../WebContent/css/global.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .section {
+      padding: 40px 60px;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ShopEase</h1>
+    <nav>
+    <a href="../../../../WebContent/index.html">Home</a>
+    <a href="cart.html">Cart</a>
+    <a href="account-settings.html">Account</a>
+    <a href="payments.html">Payment</a>
+  </nav>
+  </header>
+
+  <section class="section">
+    <h2>Kids' T-Shirts</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?kids,tshirt,cartoon" alt="T-Shirt 1">
+        <h4>Cartoon Print Tee</h4>
+        <p>₹499</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?kids,tshirt,blue" alt="T-Shirt 2">
+        <h4>Blue Cotton T-Shirt</h4>
+        <p>₹549</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?kids,tshirt,pink" alt="T-Shirt 3">
+        <h4>Pink Unicorn Tee</h4>
+        <p>₹599</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?kids,tshirt,superhero" alt="T-Shirt 4">
+        <h4>Superhero Printed Tee</h4>
+        <p>₹649</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?kids,tshirt,stripe" alt="T-Shirt 5">
+        <h4>Striped Soft Tee</h4>
+        <p>₹499</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x300/?kids,tshirt,animals" alt="T-Shirt 6">
+        <h4>Animal Graphic Tee</h4>
+        <p>₹579</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 ShopEase. All rights reserved.
+  </footer>
+
+</body>
+</html>

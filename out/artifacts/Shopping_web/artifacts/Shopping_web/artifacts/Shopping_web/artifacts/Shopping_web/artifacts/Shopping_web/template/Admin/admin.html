@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Dashboard</title>
+  <link rel="stylesheet" href="../static/css/global.css" />
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #1f1f1f;
+      color: white;
+      padding: 30px 15px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 10px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #007bff;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    .main h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .dashboard-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      flex: 1 1 220px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .recent-orders {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .recent-orders h2 {
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .pending { background-color: #ffc107; }
+    .shipped { background-color: #28a745; }
+    .cancelled { background-color: #dc3545; }
+
+    @media(max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+      .main {
+        padding: 20px;
+      }
+      .dashboard-cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="admin.html" class="active">Dashboard</a>
+    <a href="admin-products.html">Products</a>
+    <a href="admin-orders.html">Orders</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-add-product.html">Add Product</a>
+    <a href="admin-settings.html">Settings</a>
+    <a href="Login.html">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Welcome, Admin 👋</h1>
+
+    <!-- Dashboard Summary Cards -->
+    <div class="dashboard-cards">
+      <div class="card">
+        <h3>Products</h3>
+        <p>158 Products</p>
+      </div>
+      <div class="card">
+        <h3>Orders</h3>
+        <p>94 Total Orders</p>
+      </div>
+      <div class="card">
+        <h3>Users</h3>
+        <p>1,024 Registered</p>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <p>₹2,45,300</p>
+      </div>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="recent-orders">
+      <h2>Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#ORD1005</td>
+            <td>Ravi Kumar</td>
+            <td>2025-07-06</td>
+            <td>₹1,299</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td>#ORD1004</td>
+            <td>Meera Joshi</td>
+            <td>2025-07-05</td>
+            <td>₹799</td>
+            <td><span class="status shipped">Shipped</span></td>
+          </tr>
+          <tr>
+            <td>#ORD1003</td>
+            <td>Amit Yadav</td>
+            <td>2025-07-04</td>
+            <td>₹1,499</td>
+            <td><span class="status cancelled">Cancelled</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
