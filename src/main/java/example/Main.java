@@ -2,7 +2,6 @@ package example;
 
 import db.DBConnection;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -10,6 +9,6 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws SQLException {
         DBConnection dbcon = new DBConnection();
-        dbcon.getConnection();
+        DBConnection.getConnection();
     }
 }

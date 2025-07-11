@@ -1,18 +1,23 @@
 package db;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/shopping";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/shoppingdb";
     private static final String USER = "root";
-    private static final String PASSWORD = "admin@2204";
+    private static final String PASS = "your_password";
 
-    public static Connection getConnection() throws SQLException {
-        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        System.out.println("Connection Successful");
-        return conn;
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL JDBC Driver not found", e);
+        }
     }
 
-    // Optional: test the connection (run this in main for debugging)
-
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(DB_URL, USER, PASS);
+    }
 }
